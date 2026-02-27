@@ -1,0 +1,43 @@
+{
+  "industry_names": [
+    "Agriculture/Forestry",
+    "Manufacturing",
+    "Retail Trade",
+    "Healthcare",
+    "Education",
+    "Construction",
+    "Transportation",
+    "Accommodation/Food",
+    "Professional/Technical",
+    "Finance/Insurance",
+    "Government",
+    "Other Services"
+  ],
+  "age_groups": [
+    "18-24",
+    "25-34",
+    "35-44",
+    "45-54",
+    "55-64",
+    "65+"
+  ],
+  "education_levels": [
+    "< High School",
+    "HS/GED",
+    "Some College",
+    "Bachelor's",
+    "Graduate+"
+  ],
+  "regions": [
+    "Delta",
+    "North MS",
+    "Central",
+    "South/Gulf",
+    "Metro (Jackson)"
+  ],
+  "employment_status": [
+    "Employed",
+    "Unemployed",
+    "Underemployed"
+  ]
+}

@@ -1,0 +1,490 @@
+simulation_metadata:
+  ai_adoption_rate: 0.08
+  augmentation_threshold: 0.35
+  automation_threshold: 0.6
+  base_unemployment_rate: 0.04
+  calibration: false
+  device: cpu
+  mapping_path: ${simulation_metadata.population_dir}/population_mapping.json
+  new_job_creation_rate: 0.02
+  num_agents: 1200000
+  num_episodes: 1
+  num_steps_per_episode: 12
+  num_substeps_per_step: 2
+  population_dir: /Users/ashwani/Desktop/AgentTorch/agent_torch/populations/mississippi
+  region_resilience:
+  - 0.55
+  - 0.65
+  - 0.7
+  - 0.68
+  - 0.8
+  retraining_effectiveness: 0.3
+  sector_adoption_speed:
+  - 0.6
+  - 1.2
+  - 1.0
+  - 0.8
+  - 0.7
+  - 0.5
+  - 1.1
+  - 0.9
+  - 1.5
+  - 1.4
+  - 0.9
+  - 0.8
+  wage_decline_displaced: 0.15
+  wage_growth_augmented: 0.03
+state:
+  agents:
+    workers:
+      number: ${simulation_metadata.num_agents}
+      properties:
+        age:
+          dtype: int
+          initialization_function:
+            arguments:
+              attribute:
+                initialization_function: null
+                learnable: false
+                name: Attribute name
+                shape: null
+                value: age
+              file_path:
+                initialization_function: null
+                learnable: false
+                name: Age group file
+                shape: null
+                value: ${simulation_metadata.population_dir}/age.pickle
+            generator: load_population_attribute
+          learnable: false
+          name: Age Group
+          shape:
+          - ${state.agents.workers.number}
+          - 1
+        ai_exposure:
+          dtype: float
+          initialization_function:
+            arguments:
+              attribute:
+                initialization_function: null
+                learnable: false
+                name: Attribute name
+                shape: null
+                value: ai_exposure
+              file_path:
+                initialization_function: null
+                learnable: false
+                name: AI exposure file
+                shape: null
+                value: ${simulation_metadata.population_dir}/ai_exposure.pickle
+            generator: load_population_attribute
+          learnable: false
+          name: AI Exposure Score
+          shape:
+          - ${state.agents.workers.number}
+          - 1
+        digital_skill:
+          dtype: float
+          initialization_function:
+            arguments:
+              attribute:
+                initialization_function: null
+                learnable: false
+                name: Attribute name
+                shape: null
+                value: digital_skill
+              file_path:
+                initialization_function: null
+                learnable: false
+                name: Digital skill file
+                shape: null
+                value: ${simulation_metadata.population_dir}/digital_skill.pickle
+            generator: load_population_attribute
+          learnable: false
+          name: Digital Skill Level
+          shape:
+          - ${state.agents.workers.number}
+          - 1
+        education:
+          dtype: int
+          initialization_function:
+            arguments:
+              attribute:
+                initialization_function: null
+                learnable: false
+                name: Attribute name
+                shape: null
+                value: education
+              file_path:
+                initialization_function: null
+                learnable: false
+                name: Education file
+                shape: null
+                value: ${simulation_metadata.population_dir}/education.pickle
+            generator: load_population_attribute
+          learnable: false
+          name: Education Level
+          shape:
+          - ${state.agents.workers.number}
+          - 1
+        effective_ai_exposure:
+          dtype: float
+          initialization_function: null
+          learnable: false
+          name: Effective AI Exposure (evolves over time)
+          shape:
+          - ${state.agents.workers.number}
+          - 1
+          value: 0.0
+        employment_status:
+          dtype: int
+          initialization_function:
+            arguments:
+              attribute:
+                initialization_function: null
+                learnable: false
+                name: Attribute name
+                shape: null
+                value: employment_status
+              file_path:
+                initialization_function: null
+                learnable: false
+                name: Employment status file
+                shape: null
+                value: ${simulation_metadata.population_dir}/employment_status.pickle
+            generator: load_population_attribute
+          learnable: false
+          name: Employment Status
+          shape:
+          - ${state.agents.workers.number}
+          - 1
+        gender:
+          dtype: int
+          initialization_function:
+            arguments:
+              attribute:
+                initialization_function: null
+                learnable: false
+                name: Attribute name
+                shape: null
+                value: gender
+              file_path:
+                initialization_function: null
+                learnable: false
+                name: Gender file
+                shape: null
+                value: ${simulation_metadata.population_dir}/gender.pickle
+            generator: load_population_attribute
+          learnable: false
+          name: Gender
+          shape:
+          - ${state.agents.workers.number}
+          - 1
+        industry:
+          dtype: int
+          initialization_function:
+            arguments:
+              attribute:
+                initialization_function: null
+                learnable: false
+                name: Attribute name
+                shape: null
+                value: industry
+              file_path:
+                initialization_function: null
+                learnable: false
+                name: Industry file
+                shape: null
+                value: ${simulation_metadata.population_dir}/industry.pickle
+            generator: load_population_attribute
+          learnable: false
+          name: Industry Sector
+          shape:
+          - ${state.agents.workers.number}
+          - 1
+        job_impact_status:
+          dtype: int
+          initialization_function: null
+          learnable: false
+          name: Job Impact Status
+          shape:
+          - ${state.agents.workers.number}
+          - 1
+          value: 0
+        region:
+          dtype: int
+          initialization_function:
+            arguments:
+              attribute:
+                initialization_function: null
+                learnable: false
+                name: Attribute name
+                shape: null
+                value: region
+              file_path:
+                initialization_function: null
+                learnable: false
+                name: Region file
+                shape: null
+                value: ${simulation_metadata.population_dir}/region.pickle
+            generator: load_population_attribute
+          learnable: false
+          name: Geographic Region
+          shape:
+          - ${state.agents.workers.number}
+          - 1
+        wage:
+          dtype: float
+          initialization_function:
+            arguments:
+              attribute:
+                initialization_function: null
+                learnable: false
+                name: Attribute name
+                shape: null
+                value: wage
+              file_path:
+                initialization_function: null
+                learnable: false
+                name: Wage file
+                shape: null
+                value: ${simulation_metadata.population_dir}/wage.pickle
+            generator: load_population_attribute
+          learnable: false
+          name: Annual Wage
+          shape:
+          - ${state.agents.workers.number}
+          - 1
+  environment:
+    ai_penetration_index:
+      dtype: float
+      initialization_function: null
+      learnable: false
+      name: AI Penetration Index (economy-wide)
+      shape:
+      - 1
+      value: 0.15
+    avg_wage_change:
+      dtype: float
+      initialization_function: null
+      learnable: false
+      name: Average wage change percentage
+      shape:
+      - ${simulation_metadata.num_steps_per_episode}
+      value: 0
+    gdp_impact:
+      dtype: float
+      initialization_function: null
+      learnable: false
+      name: GDP impact estimate (millions USD)
+      shape:
+      - ${simulation_metadata.num_steps_per_episode}
+      value: 0
+    quarter:
+      dtype: int
+      initialization_function: null
+      learnable: false
+      name: Current Quarter
+      shape:
+      - 1
+      value: 0
+    region_unemployment:
+      dtype: float
+      initialization_function: null
+      learnable: false
+      name: Unemployment rate by region
+      shape:
+      - 5
+      value:
+      - 0.06
+      - 0.045
+      - 0.04
+      - 0.042
+      - 0.035
+    sector_augmentation:
+      dtype: float
+      initialization_function: null
+      learnable: false
+      name: Augmentation count by sector
+      shape:
+      - 12
+      value: 0
+    sector_displacement:
+      dtype: float
+      initialization_function: null
+      learnable: false
+      name: Displacement count by sector
+      shape:
+      - 12
+      value: 0
+    total_augmented:
+      dtype: float
+      initialization_function: null
+      learnable: false
+      name: Cumulative workers augmented
+      shape:
+      - ${simulation_metadata.num_steps_per_episode}
+      value: 0
+    total_displaced:
+      dtype: float
+      initialization_function: null
+      learnable: false
+      name: Cumulative workers displaced
+      shape:
+      - ${simulation_metadata.num_steps_per_episode}
+      value: 0
+    total_retrained:
+      dtype: float
+      initialization_function: null
+      learnable: false
+      name: Cumulative workers retrained
+      shape:
+      - ${simulation_metadata.num_steps_per_episode}
+      value: 0
+    unemployment_rate:
+      dtype: float
+      initialization_function: null
+      learnable: false
+      name: Current unemployment rate
+      shape:
+      - ${simulation_metadata.num_steps_per_episode}
+      value: 0.04
+  network: null
+  objects: null
+substeps:
+  '0':
+    active_agents:
+    - workers
+    description: Observe worker attributes and compute effective AI exposure based
+      on evolving adoption
+    name: AI Exposure Assessment
+    observation:
+      workers: null
+    policy:
+      workers:
+        assess_ai_exposure:
+          arguments:
+            adoption_acceleration:
+              dtype: float
+              initialization_function: null
+              learnable: true
+              name: AI adoption acceleration rate
+              shape:
+              - 1
+              value: ${simulation_metadata.ai_adoption_rate}
+          generator: AssessAIExposure
+          input_variables:
+            age: agents/workers/age
+            ai_exposure: agents/workers/ai_exposure
+            digital_skill: agents/workers/digital_skill
+            education: agents/workers/education
+            industry: agents/workers/industry
+          output_variables:
+          - effective_ai_exposure
+    reward: null
+    transition:
+      update_exposure:
+        arguments:
+          base_penetration_growth:
+            dtype: float
+            initialization_function: null
+            learnable: true
+            name: Quarterly AI penetration growth
+            shape:
+            - 1
+            value: 0.03
+        generator: UpdateExposure
+        input_variables:
+          ai_penetration_index: environment/ai_penetration_index
+          effective_ai_exposure: agents/workers/effective_ai_exposure
+        output_variables:
+        - effective_ai_exposure
+        - ai_penetration_index
+  '1':
+    active_agents:
+    - workers
+    description: Workers transition between employment states based on AI exposure
+      and economic factors
+    name: Job Transition
+    observation:
+      workers: null
+    policy:
+      workers:
+        llm_retraining_decision:
+          arguments: {}
+          generator: LLMRetrainingDecision
+          input_variables:
+            age: agents/workers/age
+            digital_skill: agents/workers/digital_skill
+            education: agents/workers/education
+            effective_ai_exposure: agents/workers/effective_ai_exposure
+            employment_status: agents/workers/employment_status
+            industry: agents/workers/industry
+            job_impact_status: agents/workers/job_impact_status
+            region: agents/workers/region
+            unemployment_rate: environment/unemployment_rate
+            wage: agents/workers/wage
+          output_variables:
+          - retraining_probability
+    reward: null
+    transition:
+      job_transition:
+        arguments:
+          augmentation_threshold:
+            dtype: float
+            initialization_function: null
+            learnable: true
+            name: Augmentation threshold
+            shape:
+            - 1
+            value: ${simulation_metadata.augmentation_threshold}
+          automation_threshold:
+            dtype: float
+            initialization_function: null
+            learnable: true
+            name: Automation displacement threshold
+            shape:
+            - 1
+            value: ${simulation_metadata.automation_threshold}
+          retraining_rate:
+            dtype: float
+            initialization_function: null
+            learnable: true
+            name: Quarterly retraining success rate
+            shape:
+            - 1
+            value: ${simulation_metadata.retraining_effectiveness}
+        generator: JobTransition
+        input_variables:
+          age: agents/workers/age
+          avg_wage_change: environment/avg_wage_change
+          digital_skill: agents/workers/digital_skill
+          education: agents/workers/education
+          effective_ai_exposure: agents/workers/effective_ai_exposure
+          employment_status: agents/workers/employment_status
+          gdp_impact: environment/gdp_impact
+          industry: agents/workers/industry
+          job_impact_status: agents/workers/job_impact_status
+          region: agents/workers/region
+          region_unemployment: environment/region_unemployment
+          sector_augmentation: environment/sector_augmentation
+          sector_displacement: environment/sector_displacement
+          total_augmented: environment/total_augmented
+          total_displaced: environment/total_displaced
+          total_retrained: environment/total_retrained
+          unemployment_rate: environment/unemployment_rate
+          wage: agents/workers/wage
+        output_variables:
+        - employment_status
+        - job_impact_status
+        - wage
+        - digital_skill
+        - total_displaced
+        - total_augmented
+        - total_retrained
+        - unemployment_rate
+        - avg_wage_change
+        - gdp_impact
+        - sector_displacement
+        - sector_augmentation
+        - region_unemployment

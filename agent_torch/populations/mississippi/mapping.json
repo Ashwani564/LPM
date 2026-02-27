@@ -1,0 +1,4 @@
+{
+  "age": ["18-34", "35-54", "55+"],
+  "education": ["HS or less", "Some College/Bachelor's", "Graduate+"]
+}
